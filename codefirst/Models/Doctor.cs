@@ -1,0 +1,23 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace codefirst.Models;
+
+[Table("Doctor")]
+public class Doctor
+{
+    [Key]
+    [Column("IdDoctor")]
+    public int Id { get; set; }
+    
+    [MaxLength(100)]
+    public string FirstName { get; set; }
+    
+    [MaxLength(100)]
+    public string LastName { get; set; }
+    
+    [MaxLength(100)]
+    public string Email { get; set; }
+    
+    public virtual ICollection<Prescription> Prescriptions { get; set; }
+}
